@@ -1,0 +1,125 @@
+import dependencies.AnnotationProcessing
+import dependencies.Versions
+import dependencies.Application
+import dependencies.dependencies.Dependencies
+import dependencies.Java
+import dependencies.dependencies.AndroidTestDependencies
+import dependencies.dependencies.SupportDependencies
+
+plugins {
+    id 'com.android.application'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+android {
+    compileSdkVersion Versions.compilesdk
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId Application.id
+        minSdkVersion Versions.minsdk
+        targetSdkVersion Versions.targetsdk
+        versionCode Application.version_code
+        versionName Application.version_name
+
+        testInstrumentationRunner "com.example.condorlabsapp.CustomTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility Java.java_version
+        targetCompatibility Java.java_version
+    }
+    kotlinOptions {
+        jvmTarget = Java.java_version
+    }
+}
+
+dependencies {
+
+    // Kotlin
+
+    implementation Dependencies.kotlin_standard_library
+    implementation Dependencies.kotlin_reflect
+    implementation Dependencies.ktx
+
+    // Support
+    implementation SupportDependencies.appcompat
+    implementation SupportDependencies.constraintlayout
+    implementation SupportDependencies.material_design
+    implementation SupportDependencies.swipe_refresh_layout
+    implementation SupportDependencies.recycler_view
+
+    // DI (Dagger Hilt)
+    implementation Dependencies.dagger_hilt
+    kapt AnnotationProcessing.dagger_hilt_compiler
+
+    //DB (Room)
+    implementation Dependencies.room_runtime
+    implementation Dependencies.room_ktx
+
+    // Retrofit
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofit_gson
+    implementation Dependencies.ok_http
+    implementation Dependencies.ok_http_log
+
+    // Navigation component
+    implementation Dependencies.navigation_runtime
+    implementation Dependencies.navigation_ui
+    implementation Dependencies.navigation_fragment
+    implementation Dependencies.navigation_dynamic
+
+    // Material dialogs (External library)
+    implementation Dependencies.material_dialogs
+    implementation Dependencies.material_dialogs_input
+
+    // Glide
+    implementation Dependencies.glide
+    kapt AnnotationProcessing.glide_compiler
+
+    // Life cycle
+    implementation Dependencies.lifecycle_runtime
+    implementation Dependencies.lifecycle_coroutines
+    implementation Dependencies.dagger_hilt_with_life_cycle
+    implementation Dependencies.view_model_life_cycle
+    kapt AnnotationProcessing.dagger_hilt_with_life_cycle_compilar
+
+    // Tests
+    implementation Dependencies.mockito_core
+    implementation Dependencies.mock_server
+    implementation Dependencies.mockito_android
+
+    debugImplementation AndroidTestDependencies.espresso_core
+    debugImplementation AndroidTestDependencies.test_runner
+    debugImplementation AndroidTestDependencies.test_rules
+    debugImplementation AndroidTestDependencies.fragment_testing
+
+    kaptAndroidTest AnnotationProcessing.dagger_hilt_test
+
+    androidTestImplementation AndroidTestDependencies.dagger_hilt_test
+    androidTestImplementation AndroidTestDependencies.kotlin_test
+    androidTestImplementation AndroidTestDependencies.coroutines_test
+    androidTestImplementation AndroidTestDependencies.espresso_contrib
+    androidTestImplementation AndroidTestDependencies.espresso_intent
+    androidTestImplementation AndroidTestDependencies.idling_resource
+    androidTestImplementation AndroidTestDependencies.text_core_ktx
+    androidTestImplementation AndroidTestDependencies.navigation_testing
+}

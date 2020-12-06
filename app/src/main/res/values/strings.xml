@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CondorLabsApp</string>
+
+    <!-- MainActivity -->
+    <string name="menu_search_filter">Filter</string>
+    <string name="menu_search_search">Search</string>
+
+    <!-- DashboardFragment -->
+    <string name="dashboard_fragment_toolbar_title">Teams</string>
+
+    <!-- SoccerTeamsDetailFragment -->
+    <string name="soccer_teams_fragment_toolbar_title">Team detail</string>
+
+    <!-- WebViewFragment -->
+    <string name="web_view_fragment_toolbar_title">Team web side</string>
+</resources>

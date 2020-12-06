@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_activity_fragment_margin">16dp</dimen>
+    <dimen name="settings_profile_image_size">90dp</dimen>
+    <dimen name="settings_container_height">60dp</dimen>
+</resources>
