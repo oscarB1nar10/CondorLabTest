@@ -25,18 +25,16 @@ class WebViewFragment : Fragment(R.layout.fragment_webview) {
         setupWebView()
     }
 
-
     private fun setupToolbar() {
         activity?.let { context ->
             context.toolbar_title.text = getString(R.string.web_view_fragment_toolbar_title)
             context.icon_toolbar_left.visibility = View.VISIBLE
             context.icon_toolbar_left.setOnClickListener {
-                activity?.onBackPressed()
                 context.icon_toolbar_left.visibility = View.GONE
+                activity?.onBackPressed()
             }
         }
     }
-
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setupWebView() {

@@ -26,7 +26,8 @@ class MainActivity : BaseActivity() {
     }
 
 
+    /*
     override fun onBackPressed() {
         progress_circular?.visibility = View.GONE
-    }
+    }*/
 }

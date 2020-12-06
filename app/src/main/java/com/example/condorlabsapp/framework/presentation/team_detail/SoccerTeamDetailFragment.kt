@@ -45,8 +45,8 @@ class SoccerTeamDetailFragment : Fragment(R.layout.fragment_team_detail) {
             context.toolbar_title.text = getString(R.string.soccer_teams_fragment_toolbar_title)
             context.icon_toolbar_left.visibility = VISIBLE
             context.icon_toolbar_left.setOnClickListener {
-                activity?.onBackPressed()
                 context.icon_toolbar_left.visibility = GONE
+                activity?.onBackPressed()
             }
         }
     }
