@@ -11,10 +11,9 @@ class SoccerTeamDispatcher : BaseDispatcher() {
 
         if (request == null) return MockResponse().setResponseCode(404)
 
-        if (request.path == "/api/v1/json/1/search_all_teams.php?s=Soccer&c=Spain") {
+        if (request.path.contains("/api/v1/json/1/search_all_teams.php?s=Soccer&c=Spain"))
             return getResponse(TestHelper.FILE_SOCCER_TEAMS)
-        }
 
-        return MockResponse().setResponseCode(404)
+        return super.dispatch(request)
     }
 }

@@ -1,13 +1,10 @@
 package util
 
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
+import java.io.*
 
 object ResourceUtil {
 
-    private const val API_RESPONSE_DIR = "api-response/"
+    private const val API_RESPONSE_DIR = "api_response/"
     private const val IMAGES_DIR = "images/"
 
     @Throws(IOException::class)
